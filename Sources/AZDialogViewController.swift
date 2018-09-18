@@ -93,7 +93,7 @@ open class AZDialogViewController: UIViewController{
         didSet{
             if titleLabel != nil,generalStackView != nil {
                 titleLabel.text = mTitle
-                if mTitle == nil || mTitle?.characters.count == 0{
+                if mTitle == nil || mTitle?.count == 0{
                     titleLabel.isHidden = true
                     separatorView.isHidden = true
                 }else{
@@ -110,7 +110,7 @@ open class AZDialogViewController: UIViewController{
         didSet{
             if messageLabel != nil,generalStackView != nil {
                 messageLabel.text = mMessage
-                if mMessage == nil || mMessage?.characters.count == 0{
+                if mMessage == nil || mMessage?.count == 0{
                     messageLabel.isHidden = true
                 }else{
                     messageLabel.isHidden = false
@@ -281,7 +281,7 @@ open class AZDialogViewController: UIViewController{
     }
     
     /// Change the height of the custom view
-    open var customViewSizeRatio: CGFloat = 0.0{
+    open var customViewSizeRatio: CGFloat = 0.0 {
         didSet{
             customViewHeightAnchor =
                 container.heightAnchor
@@ -531,6 +531,10 @@ open class AZDialogViewController: UIViewController{
         controller.present(self, animated: false, completion: nil)
     }
     
+    open func show() {
+        guard let root = UIApplication.shared.keyWindow?.rootViewController else { return }
+        show(in: root)
+    }
     
     //MARK: - Overriding methods
     
@@ -1182,6 +1186,35 @@ open class AZDialogViewController: UIViewController{
         view.addGestureRecognizer(tapGesture)
     }
     
+    public func setStyle(_ style: AZDialogStyle) {
+        self.backgroundAlpha = style.backgroundAlpha
+        self.animationDuration = style.animationDuration
+        self.blurBackground = style.blurBackground
+        self.blurEffectStyle = style.blurEffectStyle
+        self.showSeparator = style.showSeparator
+        self.dismissDirection = style.dismissDirection
+        self.dismissWithOutsideTouch = style.dismissWithOutsideTouch
+        self.allowDragGesture = style.allowDragGesture
+        self.cancelEnabled = style.cancelEnabled
+        self.rubberEnabled = style.rubberEnabled
+        self.buttonStyle = style.buttonStyle
+        self.buttonInit = style.buttonInit
+        self.leftToolStyle = style.leftToolStyle
+        self.rightToolStyle = style.rightToolStyle
+        self.cancelButtonStyle = style.cancelButtonStyle
+        self.imageHandler = style.imageHandler
+        self.leftToolAction = style.leftToolAction
+        self.rightToolAction = style.rightToolAction
+        self.separatorColor = style.separatorColor
+        self.titleColor = style.titleColor
+        self.messageColor = style.messageColor
+        self.alertBackgroundColor = style.alertBackgroundColor
+        self.contentOffset = style.contentOffset
+        self.customViewSizeRatio = style.customViewSizeRatio
+        self.title = style.title
+        self.message = style.message
+        self.cancelTitle = style.cancelTitle
+    }
 }
 
 public enum AZDialogDismissDirection{
