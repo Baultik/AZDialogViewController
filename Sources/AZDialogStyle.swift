@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 ///Protocol to define set style for dialogs
 public protocol AZDialogStyle {
     //MARK: - Settings
     var blurBackground: Bool { get }
     
-    var blurEffectStyle: UIBlurEffectStyle { get }
+    var blurEffectStyle: UIBlurEffect.Style { get }
     
     /// Background alpha. default is 0.2
     var backgroundAlpha: CGFloat { get }
@@ -93,7 +94,7 @@ public protocol AZDialogStyle {
 extension AZDialogStyle {
     var blurBackground: Bool { return true }
     
-    var blurEffectStyle: UIBlurEffectStyle { return .dark }
+    var blurEffectStyle: UIBlurEffect.Style { return .dark }
     
     var showSeparator: Bool { return true }
     

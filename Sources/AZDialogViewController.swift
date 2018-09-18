@@ -175,7 +175,7 @@ open class AZDialogViewController: UIViewController{
 
     open var blurBackground: Bool = true
 
-    open var blurEffectStyle: UIBlurEffectStyle = .dark
+    open var blurEffectStyle: UIBlurEffect.Style = .dark
 
     /// Show separator
     open var showSeparator = true
@@ -1211,8 +1211,6 @@ open class AZDialogViewController: UIViewController{
         self.alertBackgroundColor = style.alertBackgroundColor
         self.contentOffset = style.contentOffset
         self.customViewSizeRatio = style.customViewSizeRatio
-        self.title = style.title
-        self.message = style.message
         self.cancelTitle = style.cancelTitle
     }
 }
@@ -1253,7 +1251,7 @@ fileprivate extension UIEdgeInsets{
 
 fileprivate extension UIVisualEffectView {
 
-    func fadeInEffect(_ style:UIBlurEffectStyle = .light, withDuration duration: TimeInterval = 1.0) {
+    func fadeInEffect(_ style: UIBlurEffect.Style = .light, withDuration duration: TimeInterval = 1.0) {
         if #available(iOS 10.0, *) {
             let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
                 self.effect = UIBlurEffect(style: style)
