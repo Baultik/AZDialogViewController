@@ -8,8 +8,6 @@
 
 import UIKit
 
-public typealias ActionHandler = ((AZDialogViewController)->(Void))
-
 open class AZDialogViewController: UIViewController{
 
     //MARK: - Private Properties
@@ -1219,19 +1217,6 @@ public enum AZDialogDismissDirection{
     case bottom
     case both
     case none
-}
-
-open class AZDialogAction{
-    open var title: String?
-    open var isEnabled: Bool = true
-    open var handler: ActionHandler
-    
-    public init(title: String, handler: ActionHandler? = nil){
-        self.title = title
-        self.handler = handler ?? { (dialog) -> (Void) in
-            dialog.dismiss()
-        }
-    }
 }
 
 fileprivate class BaseView: UIView{

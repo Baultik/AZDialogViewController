@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3DE64E215584180022C4F6 /* AZDialogAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE64D215584180022C4F6 /* AZDialogAction.swift */; };
+		1D3DE64F215584180022C4F6 /* AZDialogAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE64D215584180022C4F6 /* AZDialogAction.swift */; };
+		1D3DE651215586510022C4F6 /* IGNStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE650215586510022C4F6 /* IGNStyle.swift */; };
 		4817E4FD1F61977600066F27 /* AZDialogViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4817E4FB1F61977600066F27 /* AZDialogViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4817E5001F61977600066F27 /* AZDialogViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4817E4F91F61977600066F27 /* AZDialogViewController.framework */; };
 		4817E5011F61977600066F27 /* AZDialogViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4817E4F91F61977600066F27 /* AZDialogViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -48,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D3DE64D215584180022C4F6 /* AZDialogAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AZDialogAction.swift; path = ../Sources/AZDialogAction.swift; sourceTree = "<group>"; };
+		1D3DE650215586510022C4F6 /* IGNStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGNStyle.swift; sourceTree = "<group>"; };
 		4817E4F91F61977600066F27 /* AZDialogViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AZDialogViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4817E4FB1F61977600066F27 /* AZDialogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZDialogViewController.h; sourceTree = "<group>"; };
 		4817E4FC1F61977600066F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 				9D6F3FF41E62E18000B70203 /* Info.plist */,
 				77B90A38215498F40087E0ED /* EditUserStyle.swift */,
 				77B90A3A21549F2C0087E0ED /* ReportStyle.swift */,
+				1D3DE650215586510022C4F6 /* IGNStyle.swift */,
 			);
 			path = AZDialogViewControllerExample;
 			sourceTree = "<group>";
@@ -131,6 +137,7 @@
 			children = (
 				771161C82150BC7800909D33 /* AZDialogStyle.swift */,
 				9DDAB3751E639C6F005D257E /* AZDialogViewController.swift */,
+				1D3DE64D215584180022C4F6 /* AZDialogAction.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3DE64F215584180022C4F6 /* AZDialogAction.swift in Sources */,
 				771161C92150BC7800909D33 /* AZDialogStyle.swift in Sources */,
 				4817E5061F61977A00066F27 /* AZDialogViewController.swift in Sources */,
 			);
@@ -263,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3DE651215586510022C4F6 /* IGNStyle.swift in Sources */,
 				9D6F3FEB1E62E18000B70203 /* ViewController.swift in Sources */,
 				77B90A3B21549F2C0087E0ED /* ReportStyle.swift in Sources */,
+				1D3DE64E215584180022C4F6 /* AZDialogAction.swift in Sources */,
 				9D6F3FE91E62E18000B70203 /* AppDelegate.swift in Sources */,
 				771161CA2150BC7E00909D33 /* AZDialogStyle.swift in Sources */,
 				9DDAB3761E639C6F005D257E /* AZDialogViewController.swift in Sources */,

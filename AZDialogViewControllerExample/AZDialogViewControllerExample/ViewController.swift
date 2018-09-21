@@ -125,64 +125,8 @@ class ViewController: UIViewController {
         let dialogController = AZDialogViewController(title: "IGN",
                                                       message: "IGN is your destination for gaming, movies, comics and everything you're into. Find the latest reviews, news, videos, and more more.")
         
-        dialogController.showSeparator = true
-        
-        dialogController.dismissDirection = .bottom
-        
-        dialogController.imageHandler = { (imageView) in
-            imageView.image = UIImage(named: "ign")
-            imageView.contentMode = .scaleAspectFill
-            return true
-        }
-        
-        dialogController.addAction(AZDialogAction(title: "Subscribe", handler: { [weak self] (dialog) -> (Void) in
-            //dialog.title = "title"
-            //dialog.message = "new message"
-            //dialog.image = dialog.image == nil ? #imageLiteral(resourceName: "ign") : nil
-            //dialog.title = ""
-            //dialog.message = ""
-            //dialog.customViewSizeRatio = 0.2
-            
-            
-        }))
-        
-        //let container = dialogController.container
-        //let button = UIButton(type: .system)
-        //button.setTitle("MY BUTTON", for: [])
-        //dialogController.container.addSubview(button)
-        //button.translatesAutoresizingMaskIntoConstraints = false
-        //button.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
-        //button.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        
-        
-        dialogController.buttonStyle = { (button,height,position) in
-            button.setBackgroundImage(UIImage.imageWithColor(self.primaryColor) , for: .normal)
-            button.setBackgroundImage(UIImage.imageWithColor(self.primaryColorDark), for: .highlighted)
-            button.setTitleColor(UIColor.white, for: [])
-            button.layer.masksToBounds = true
-            button.layer.borderColor = self.primaryColor.cgColor
-            button.tintColor = .white
-            if position == 0 {
-                let image = #imageLiteral(resourceName: "ic_bookmark").withRenderingMode(.alwaysTemplate)
-                button.setImage(image, for: [])
-                button.imageView?.contentMode = .scaleAspectFit
-            }
-        }
-
-        dialogController.blurBackground = true
-        dialogController.blurEffectStyle = .dark
-
-        dialogController.rightToolStyle = { (button) in
-            button.setImage(#imageLiteral(resourceName: "share"), for: [])
-            button.tintColor = .lightGray
-            return true
-        }
-        
-        dialogController.rightToolAction = { (button) in
-            print("Share function")
-        }
-        
-        dialogController.dismissWithOutsideTouch = true
+        dialogController.addAction(AZDialogAction(title: "Subscribe"))
+        dialogController.setStyle(IGNStyle())
         
         dialogController.show(in: self)
     }
@@ -190,11 +134,9 @@ class ViewController: UIViewController {
     func editUserDialog(){
         let dialogController = AZDialogViewController(title: "Antonio Zaitoun", message: "minitour")
 
-        dialogController.addAction(AZDialogAction(title: "Edit Name", handler: { (dialog) -> (Void) in
-            //dialog.removeAction(at: 0)
-            dialog.addAction(AZDialogAction(title: "action"))
-            dialog.contentOffset = self.view.frame.height / 2.0 - dialog.estimatedHeight / 2.0 - 16
-            
+        dialogController.addAction(AZDialogAction(title: "Edit Name", handler: {
+            $0.addAction(AZDialogAction(title: "action"))
+            $0.contentOffset = self.view.frame.height / 2.0 - $0.estimatedHeight / 2.0 - 16
         }))
         
         dialogController.addAction(AZDialogAction(title: "Remove Friend", handler: { (dialog) -> (Void) in
@@ -202,7 +144,6 @@ class ViewController: UIViewController {
         }))
         
         dialogController.addAction(AZDialogAction(title: "Block", handler: { (dialog) -> (Void) in
-            //dialog.spacing = 20
             dialog.removeAction(at: 2)
             dialog.contentOffset = self.view.frame.height / 2.0 - dialog.estimatedHeight / 2.0 - 16
         }))
