@@ -9,13 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     let primaryColor = #colorLiteral(red: 0.6271930337, green: 0.3653797209, blue: 0.8019730449, alpha: 1)
-    
     let primaryColorDark = #colorLiteral(red: 0.5373370051, green: 0.2116269171, blue: 0.7118118405, alpha: 1)
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,9 +25,8 @@ class ViewController: UIViewController {
     @IBAction func click(_ sender: UIButton) {
         switch sender.tag{
         case 0:
-            ignDialog()
-            //loadingIndicator()
-            //imagePreviewDialog()
+            //ignDialog()
+            loadingIndicator()
             //tableViewDialog()
         case 1:
             editUserDialog()
@@ -39,6 +34,8 @@ class ViewController: UIViewController {
             reportUserDialog(controller: self)
         case 3:
             reportDialog()
+        case 4:
+            imagePreviewDialog()
         default:
             break
         }
@@ -58,11 +55,9 @@ class ViewController: UIViewController {
         imageView.rightAnchor.constraint(equalTo: container.rightAnchor).isActive = true
         
         dialog.customViewSizeRatio = imageView.image!.size.height / imageView.image!.size.width
-        
         dialog.addAction(AZDialogAction(title: "Done") { (dialog) -> (Void) in
             dialog.image = #imageLiteral(resourceName: "ign")
         })
-        
         
         dialog.show(in: self)
     }
@@ -194,14 +189,10 @@ class ViewController: UIViewController {
     
     func editUserDialog(){
         let dialogController = AZDialogViewController(title: "Antonio Zaitoun", message: "minitour")
-        dialogController.showSeparator = true
-        
+
         dialogController.addAction(AZDialogAction(title: "Edit Name", handler: { (dialog) -> (Void) in
             //dialog.removeAction(at: 0)
-            dialog.addAction(AZDialogAction(title: "action") { (dialog) -> (Void) in
-               dialog.dismiss()
-            })
-            
+            dialog.addAction(AZDialogAction(title: "action"))
             dialog.contentOffset = self.view.frame.height / 2.0 - dialog.estimatedHeight / 2.0 - 16
             
         }))
@@ -215,35 +206,11 @@ class ViewController: UIViewController {
             dialog.removeAction(at: 2)
             dialog.contentOffset = self.view.frame.height / 2.0 - dialog.estimatedHeight / 2.0 - 16
         }))
-        
-        dialogController.cancelButtonStyle = { (button,height) in
-            button.tintColor = self.primaryColor
-            button.setTitle("CANCEL", for: [])
-            return true
-            
-        }
-        
-        dialogController.cancelEnabled = true
-        
-        dialogController.buttonStyle = { (button,height,position) in
-            button.setBackgroundImage(UIImage.imageWithColor(self.primaryColorDark), for: .highlighted)
-            button.setTitleColor(UIColor.white, for: .highlighted)
-            button.setTitleColor(self.primaryColor, for: .normal)
-            button.layer.masksToBounds = true
-            button.layer.borderColor = self.primaryColor.cgColor
-        }
-        
-        dialogController.dismissDirection = .bottom
-        
-        dialogController.dismissWithOutsideTouch = true
-        
-        
+
+        dialogController.setStyle(EditUserStyle())
         dialogController.contentOffset = self.view.frame.height / 2.0 - dialogController.estimatedHeight / 2.0 - 16
         
         dialogController.show(in: self)
-        
-        
-        
     }
     
     func reportUserDialog(controller: UIViewController){
@@ -251,25 +218,11 @@ class ViewController: UIViewController {
         dialogController.dismissDirection = .none
         dialogController.dismissWithOutsideTouch = false
         
-        dialogController.addAction(AZDialogAction(title: "Annoying", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "I don't know them", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Inappropriate Snaps", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Harassing me", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Other", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
+        dialogController.addAction(AZDialogAction(title: "Annoying"))
+        dialogController.addAction(AZDialogAction(title: "I don't know them"))
+        dialogController.addAction(AZDialogAction(title: "Inappropriate Snaps"))
+        dialogController.addAction(AZDialogAction(title: "Harassing me"))
+        dialogController.addAction(AZDialogAction(title: "Other"))
         
         dialogController.buttonStyle = { (button,height,position) in
             button.setBackgroundImage(UIImage.imageWithColor(self.primaryColorDark), for: .highlighted)
@@ -284,58 +237,13 @@ class ViewController: UIViewController {
 
     func reportDialog(){
         let dialogController = AZDialogViewController(title: nil, message: nil)
-        dialogController.dismissDirection = .bottom
-        
-        dialogController.dismissWithOutsideTouch = true
-        
-        let primary = #colorLiteral(red: 0.1019607843, green: 0.737254902, blue: 0.6117647059, alpha: 1)
-        let primaryDark = #colorLiteral(red: 0.0862745098, green: 0.6274509804, blue: 0.5215686275, alpha: 1)
-        
-        
-        dialogController.buttonStyle = { (button,height,position) in
-            button.tintColor = primary
-            button.layer.masksToBounds = true
-            button.setBackgroundImage(UIImage.imageWithColor(primary) , for: .normal)
-            button.setBackgroundImage(UIImage.imageWithColor(primaryDark), for: .highlighted)
-            button.setTitleColor(UIColor.white, for: [])
-            button.layer.masksToBounds = true
-            button.layer.borderColor = self.primaryColor.cgColor
-            button.layer.borderColor = primary.cgColor
 
-        }
-
-        dialogController.buttonInit = { index in
-            return HighlightableButton()
-        }
-        
-        dialogController.cancelEnabled = true
-        dialogController.cancelButtonStyle = { (button, height) in
-            button.tintColor = primary
-            button.setTitle("CANCEL", for: [])
-            return true
-        }
-
-        
-        dialogController.addAction(AZDialogAction(title: "Mute", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Group Info", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Export Chat", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-    
-        dialogController.addAction(AZDialogAction(title: "Clear Chat", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
-        dialogController.addAction(AZDialogAction(title: "Exit Chat", handler: { (dialog) -> (Void) in
-            dialog.dismiss()
-        }))
-        
+        dialogController.addAction(AZDialogAction(title: "Mute"))
+        dialogController.addAction(AZDialogAction(title: "Group Info"))
+        dialogController.addAction(AZDialogAction(title: "Export Chat"))
+        dialogController.addAction(AZDialogAction(title: "Clear Chat"))
+        dialogController.addAction(AZDialogAction(title: "Exit Chat"))
+        dialogController.setStyle(ReportStyle())
         
         dialogController.show(in: self)
     }

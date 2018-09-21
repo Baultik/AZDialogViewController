@@ -70,24 +70,19 @@ public protocol AZDialogStyle {
     var separatorColor: UIColor { get }
     
     /// Change the color of titleLabel
-    var titleColor: UIColor? { get set }
+    var titleColor: UIColor? { get }
     
     /// Change the color of messageLabel
-    var messageColor: UIColor? { get set }
+    var messageColor: UIColor? { get }
     
     /// Change the color of alert container
-    var alertBackgroundColor: UIColor? { get set }
+    var alertBackgroundColor: UIColor? { get }
     
-    /// The offset of the dialog.
-    var contentOffset: CGFloat { get }
-    
-    /// Change the height of the custom view
-    var customViewSizeRatio: CGFloat { get }
-    
-    
-    //MARK: - Strings
-    /// Change the text of the cancel button
-    var cancelTitle: String { get set }
+//    /// The offset of the dialog.
+//    var contentOffset: CGFloat { get set }
+//    
+//    /// Change the height of the custom view
+//    var customViewSizeRatio: CGFloat { get set }
 }
 
 //MARK: - Extension defaults
@@ -108,9 +103,9 @@ extension AZDialogStyle {
     
     var animationDuration: TimeInterval { return 0.2 }
     
-    var contentOffset: CGFloat { return 0.0 }
-    
-    var customViewSizeRatio: CGFloat { return 0.0 }
+//    var contentOffset: CGFloat { return 0.0 }
+//    
+//    var customViewSizeRatio: CGFloat { return 0.0 }
     
     var cancelEnabled: Bool { return false }
     

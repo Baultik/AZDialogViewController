@@ -13,6 +13,8 @@
 		4817E5061F61977A00066F27 /* AZDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAB3751E639C6F005D257E /* AZDialogViewController.swift */; };
 		771161C92150BC7800909D33 /* AZDialogStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771161C82150BC7800909D33 /* AZDialogStyle.swift */; };
 		771161CA2150BC7E00909D33 /* AZDialogStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771161C82150BC7800909D33 /* AZDialogStyle.swift */; };
+		77B90A39215498F40087E0ED /* EditUserStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B90A38215498F40087E0ED /* EditUserStyle.swift */; };
+		77B90A3B21549F2C0087E0ED /* ReportStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B90A3A21549F2C0087E0ED /* ReportStyle.swift */; };
 		9D6F3FE91E62E18000B70203 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F3FE81E62E18000B70203 /* AppDelegate.swift */; };
 		9D6F3FEB1E62E18000B70203 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F3FEA1E62E18000B70203 /* ViewController.swift */; };
 		9D6F3FEE1E62E18000B70203 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6F3FEC1E62E18000B70203 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		4817E4FB1F61977600066F27 /* AZDialogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZDialogViewController.h; sourceTree = "<group>"; };
 		4817E4FC1F61977600066F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771161C82150BC7800909D33 /* AZDialogStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AZDialogStyle.swift; path = ../Sources/AZDialogStyle.swift; sourceTree = "<group>"; };
+		77B90A38215498F40087E0ED /* EditUserStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserStyle.swift; sourceTree = "<group>"; };
+		77B90A3A21549F2C0087E0ED /* ReportStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStyle.swift; sourceTree = "<group>"; };
 		9D6F3FE51E62E18000B70203 /* AZDialogViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZDialogViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6F3FE81E62E18000B70203 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6F3FEA1E62E18000B70203 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				9D6F3FEF1E62E18000B70203 /* Assets.xcassets */,
 				9D6F3FF11E62E18000B70203 /* LaunchScreen.storyboard */,
 				9D6F3FF41E62E18000B70203 /* Info.plist */,
+				77B90A38215498F40087E0ED /* EditUserStyle.swift */,
+				77B90A3A21549F2C0087E0ED /* ReportStyle.swift */,
 			);
 			path = AZDialogViewControllerExample;
 			sourceTree = "<group>";
@@ -258,9 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D6F3FEB1E62E18000B70203 /* ViewController.swift in Sources */,
+				77B90A3B21549F2C0087E0ED /* ReportStyle.swift in Sources */,
 				9D6F3FE91E62E18000B70203 /* AppDelegate.swift in Sources */,
 				771161CA2150BC7E00909D33 /* AZDialogStyle.swift in Sources */,
 				9DDAB3761E639C6F005D257E /* AZDialogViewController.swift in Sources */,
+				77B90A39215498F40087E0ED /* EditUserStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

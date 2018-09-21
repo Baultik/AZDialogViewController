@@ -904,7 +904,7 @@ open class AZDialogViewController: UIViewController{
     /// - Parameter sender: Action Button
     @objc
     internal func handleAction(_ sender: UIButton){
-        (actions[sender.tag]!.handler)?(self)
+        (actions[sender.tag]!.handler)(self)
     }
     
     /// Setup Image View
@@ -1209,9 +1209,8 @@ open class AZDialogViewController: UIViewController{
         self.titleColor = style.titleColor
         self.messageColor = style.messageColor
         self.alertBackgroundColor = style.alertBackgroundColor
-        self.contentOffset = style.contentOffset
-        self.customViewSizeRatio = style.customViewSizeRatio
-        self.cancelTitle = style.cancelTitle
+//        self.contentOffset = style.contentOffset
+//        self.customViewSizeRatio = style.customViewSizeRatio
     }
 }
 
@@ -1225,11 +1224,13 @@ public enum AZDialogDismissDirection{
 open class AZDialogAction{
     open var title: String?
     open var isEnabled: Bool = true
-    open var handler: ActionHandler?
+    open var handler: ActionHandler
     
-    public init(title: String,handler: ActionHandler? = nil){
+    public init(title: String, handler: ActionHandler? = nil){
         self.title = title
-        self.handler = handler
+        self.handler = handler ?? { (dialog) -> (Void) in
+            dialog.dismiss()
+        }
     }
 }
 
